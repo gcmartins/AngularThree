@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let geo of geometries">
+        <p (click)="deleteGeometry(geo.id)">Name: {{ geo.name }}, Color: {{ geo.color }}, Position: [ x: {{ geo.position.x }}, y: {{ geo.position.y }}, z: {{ geo.position.z }} ] </p>
+    </li>
+</ul>
