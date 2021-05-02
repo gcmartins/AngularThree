@@ -1,5 +1,17 @@
-<ul>
-    <li *ngFor="let geo of geometries">
-        <p (click)="deleteGeometry(geo.id)">Name: {{ geo.name }}, Color: {{ geo.color }}, Position: [ x: {{ geo.position.x }}, y: {{ geo.position.y }}, z: {{ geo.position.z }} ] </p>
-    </li>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let geo of geometries">
+    <div class="row">
+      <p class="col">
+        Name: {{ geo.name }}, Color: {{ geo.color }}, Position: [ x:
+        {{ geo.position.x }}, y: {{ geo.position.y }}, z: {{ geo.position.z }} ]
+      </p>
+      <button
+        (click)="deleteGeometry(geo.id)"
+        type="button"
+        class="btn btn-outline-danger"
+      >
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+  </li>
 </ul>
