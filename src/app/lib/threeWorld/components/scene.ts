@@ -1,6 +1,6 @@
 import { Color, Scene } from 'three';
 
-function createScene() {
+export function createScene(): Scene {
   const scene = new Scene();
 
   scene.background = new Color('skyblue');
@@ -8,4 +8,3 @@ function createScene() {
   return scene;
 }
 
-export { createScene };

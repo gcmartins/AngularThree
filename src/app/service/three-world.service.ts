@@ -7,8 +7,8 @@ import { Geometry } from '../model/geometry';
   providedIn: 'root'
 })
 export class ThreeWorldService {
-  world: World;
-  geometries: Geometry[] = [];
+  private world: World;
+  private geometries: Geometry[] = [];
 
   newGeometries = new Subject<Geometry[]>();
   
@@ -28,7 +28,7 @@ export class ThreeWorldService {
   }
   
   deleteGeometry(id: number) {
-    this.world.deleteFromScene(id);
+    this.world.deleteGeometry(id);
     let index = this.geometries.findIndex(geo => geo.id == id);
     this.geometries.splice(index, 1);
   }

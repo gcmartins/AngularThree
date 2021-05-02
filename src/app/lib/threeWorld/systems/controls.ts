@@ -1,6 +1,7 @@
+import { Camera } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-function createControls(camera, canvas) {
+export function createControls(camera: Camera, canvas: HTMLElement) {
   const controls = new OrbitControls(camera, canvas);
 
   // damping and auto rotation require
@@ -9,9 +10,8 @@ function createControls(camera, canvas) {
   // this.controls.autoRotate = true;
   // controls.enableDamping = true;
 
-  controls.tick = () => controls.update();
+  // controls.tick = () => controls.update();
 
   return controls;
 }
 
-export { createControls };

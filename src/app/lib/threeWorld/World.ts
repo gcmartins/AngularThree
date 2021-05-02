@@ -1,12 +1,12 @@
-import { createCamera } from './components/camera.js';
-import { createCube } from './components/cube.js';
-import { createLights } from './components/lights.js';
-import { createScene } from './components/scene.js';
+import { createCamera } from './components/camera';
+import { createCube } from './components/cube';
+import { createLights } from './components/lights';
+import { createScene } from './components/scene';
 
-import { createControls } from './systems/controls.js';
-import { createRenderer } from './systems/renderer.js';
-import { Resizer } from './systems/Resizer.js';
-import { Loop } from './systems/Loop.js';
+import { createControls } from './systems/controls';
+import { createRenderer } from './systems/renderer';
+import { Resizer } from './systems/Resizer';
+import { Loop } from './systems/Loop';
 
 
 const camera = createCamera();
@@ -15,12 +15,13 @@ const scene = createScene();
 const loop = new Loop(camera, scene, renderer);
 
 export class World {
-  constructor(container) {
-    this.sceneElements = [];
+  private sceneElements: any[] = [];
+  
+  constructor(container: HTMLElement) {
     container.append(renderer.domElement);
     
     const controls = createControls(camera, renderer.domElement);
-    loop.updatables.push(controls);
+    // loop.updatables.push(controls);
 
     const light = createLights();
     scene.add(light);
@@ -41,7 +42,7 @@ export class World {
     loop.stop();
   }
 
-  addGeometry(pos, color) {
+  addGeometry(pos: { x: number; y: number; z: number; }, color: any) {
     const cube = createCube(color);
     cube.position.set(pos.x,pos.y,pos.z);
     scene.add(cube);
@@ -49,7 +50,7 @@ export class World {
     return cube;
   }
 
-  deleteFromScene(id) {
+  deleteGeometry(id: any) {
     let index = this.sceneElements.findIndex(elem => elem.id == id);
     scene.remove(this.sceneElements[index]);
     this.sceneElements.splice(index,1);

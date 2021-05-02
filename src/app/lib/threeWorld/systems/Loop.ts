@@ -1,9 +1,13 @@
-import { Clock } from 'three';
+import { Clock, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
 
 const clock = new Clock();
 
-class Loop {
-  constructor(camera, scene, renderer) {
+export class Loop {
+  camera: any;
+  scene: any;
+  renderer: any;
+  updatables: any[];
+  constructor(camera: PerspectiveCamera, scene: Scene, renderer: WebGLRenderer) {
     this.camera = camera;
     this.scene = scene;
     this.renderer = renderer;
@@ -13,7 +17,7 @@ class Loop {
   start() {
     this.renderer.setAnimationLoop(() => {
       // tell every animated object to tick forward one frame
-      this.tick();
+      // this.tick();
 
       // render a frame
       this.renderer.render(this.scene, this.camera);
@@ -38,4 +42,3 @@ class Loop {
   }
 }
 
-export { Loop };

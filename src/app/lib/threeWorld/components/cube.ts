@@ -6,14 +6,14 @@ import {
   TextureLoader,
 } from 'three';
 
-function createMaterial(color) {
+function createMaterial(color: any) {
   // create a texture loader.
-  const textureLoader = new TextureLoader();
+  // const textureLoader = new TextureLoader();
 
   // load a texture
-  const texture = textureLoader.load(
-    '/assets/textures/uv-test-bw.png',
-  );
+  // const texture = textureLoader.load(
+  //   '/assets/textures/uv-test-bw.png',
+  // );
 
   // create a "standard" material using
   // the texture we just loaded as a color map
@@ -24,7 +24,7 @@ function createMaterial(color) {
   return material;
 }
 
-function createCube(color) {
+export function createCube(color: any): Mesh<BoxBufferGeometry, MeshStandardMaterial> {
   const geometry = new BoxBufferGeometry(1, 1, 1);
   const material = createMaterial(color);
   const cube = new Mesh(geometry, material);
@@ -43,4 +43,3 @@ function createCube(color) {
   return cube;
 }
 
-export { createCube };
