@@ -8,10 +8,11 @@ import { GeometryListComponent } from './ui/geometry-list/geometry-list.componen
 import { EditPageComponent } from './page/edit-page/edit-page.component';
 import { ShowPageComponent } from './page/show-page/show-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, ThreeContainerComponent, GeometryFormComponent, GeometryListComponent, EditPageComponent, ShowPageComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,32 +1,43 @@
-<div class="card">
-  <div class="card-body">
-    <div class="form-group">
-      <label>Position</label>
-      <div class="form-row">
-        <div class="col">
-          <input class="form-control" type="number" placeholder="0" #posX />
+<form [formGroup]="geometryForm">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group">
+        <label>Position</label>
+        <div class="form-row">
+          <div class="col">
+            <input
+              class="form-control"
+              type="number"
+              formControlName="xCoord"
+            />
+          </div>
+          <div class="col">
+            <input
+              class="form-control"
+              type="number"
+              formControlName="yCoord"
+            />
+          </div>
+          <div class="col">
+            <input
+              class="form-control"
+              type="number"
+              formControlName="zCoord"
+            />
+          </div>
         </div>
-        <div class="col">
-          <input class="form-control" type="number" value="0" #posY />
-        </div>
-        <div class="col">
-          <input class="form-control" type="number" value="0" #posZ />
-        </div>
+        <label>Color</label>
+        <select class="form-control" formControlName="color">
+          <option label="Blue" value="blue"></option>
+          <option label="Red" value="red"></option>
+          <option label="Green" value="green"></option>
+          <option label="Yellow" value="yellow"></option>
+          <option label="Purple" value="purple"></option>
+        </select>
+        <button class="btn btn-primary" (click)="addGeometry()">
+          Add Geometry
+        </button>
       </div>
-      <label>Color</label>
-      <select class="form-control" name="Color" #geoColor>
-        <option label="Blue" value="blue"></option>
-        <option label="Red" value="red"></option>
-        <option label="Green" value="green"></option>
-        <option label="Yellow" value="yellow"></option>
-        <option label="Purple" value="purple"></option>
-      </select>
-      <button
-        class="btn btn-primary"
-        (click)="addCube(posX.value, posY.value, posZ.value, geoColor.value)"
-      >
-        Add Geometry
-      </button>
     </div>
   </div>
-</div>
+</form>

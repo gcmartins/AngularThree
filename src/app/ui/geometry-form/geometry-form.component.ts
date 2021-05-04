@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ThreeWorldService } from 'src/app/service/three-world.service';
 
 @Component({
@@ -7,15 +8,29 @@ import { ThreeWorldService } from 'src/app/service/three-world.service';
   styleUrls: ['./geometry-form.component.css']
 })
 export class GeometryFormComponent implements OnInit {
-
+  geometryForm: FormGroup;
   constructor(private threeService: ThreeWorldService) { }
   
   ngOnInit(): void {
+    this.geometryForm = new FormGroup({
+        xCoord: new FormControl(0, Validators.required),
+        yCoord: new FormControl(0, Validators.required),
+        zCoord: new FormControl(0, Validators.required), 
+        color: new FormControl(null, Validators.required)
+    });
+
   }
 
-  addCube(x: number, y: number, z: number, color: string) {
-    const pos = {x:x, y:y, z:z};
-    this.threeService.addGeometry(pos, color);
+  addGeometry() {
+    if (this.geometryForm.valid) {
+      const pos = {
+        x:this.geometryForm.get('xCoord').value, 
+        y:this.geometryForm.get('yCoord').value, 
+        z:this.geometryForm.get('zCoord').value
+      };
+      const color = this.geometryForm.get('color').value;
+      this.threeService.addGeometry(pos, color);
+    }
   }
 
 }
