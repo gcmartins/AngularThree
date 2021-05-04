@@ -13,19 +13,21 @@ const camera = createCamera();
 const renderer = createRenderer();
 const scene = createScene();
 const loop = new Loop(camera, scene, renderer);
+const controls = createControls(camera, renderer.domElement);
+const light = createLights();
+scene.add(light);
+
 
 export class World {
   private sceneElements: any[] = [];
   
-  constructor(container: HTMLElement) {
+  constructor() {}
+  
+  bind (container: HTMLElement) {
     container.append(renderer.domElement);
     
-    const controls = createControls(camera, renderer.domElement);
     // loop.updatables.push(controls);
-
-    const light = createLights();
-    scene.add(light);
-    
+  
     const resizer = new Resizer(container, camera, renderer);
   }
 

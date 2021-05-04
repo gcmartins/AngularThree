@@ -13,6 +13,7 @@ export class GeometryListComponent implements OnInit {
   constructor(private threeService: ThreeWorldService) { }
 
   ngOnInit(): void {
+    this.geometries = this.threeService.geometries;
     this.threeService.newGeometries.subscribe(geometries => {
       this.geometries = geometries;
     })

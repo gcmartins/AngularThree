@@ -8,14 +8,16 @@ import { Geometry } from '../model/geometry';
 })
 export class ThreeWorldService {
   private world: World;
-  private geometries: Geometry[] = [];
+  geometries: Geometry[] = [];
 
   newGeometries = new Subject<Geometry[]>();
   
-  constructor() { }
+  constructor() {
+    this.world = new World();
+  }
   
   createWorld(container: HTMLElement){
-    this.world = new World(container);
+    this.world.bind(container);
     this.world.start();
   }
   
