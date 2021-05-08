@@ -1,12 +1,12 @@
 import { createCamera } from './components/camera';
-import { createCube } from './components/cube';
-import { createLights } from './components/lights';
+import { createGeometry } from './components/geometry';
 import { createScene } from './components/scene';
 
 import { createControls } from './systems/controls';
 import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
 import { Loop } from './systems/Loop';
+import { AxesHelper, GridHelper, HemisphereLightProbe } from 'three';
 
 
 const camera = createCamera();
@@ -14,8 +14,12 @@ const renderer = createRenderer();
 const scene = createScene();
 const loop = new Loop(camera, scene, renderer);
 const controls = createControls(camera, renderer.domElement);
-const light = createLights();
-scene.add(light);
+const light = new HemisphereLightProbe(0xffffbb, 0x080820, 1 );
+
+const axes = new AxesHelper(1);
+//const helper = new DirectionalLightHelper(light, 5);
+const grid = new GridHelper();
+scene.add(light, axes, grid);
 
 
 export class World {
@@ -44,8 +48,8 @@ export class World {
     loop.stop();
   }
 
-  addGeometry(pos: { x: number; y: number; z: number; }, color: any) {
-    const cube = createCube(color);
+  addGeometry(geometryType: string, pos: { x: number; y: number; z: number; }, color: any) {
+    const cube = createGeometry(geometryType, color);
     cube.position.set(pos.x,pos.y,pos.z);
     scene.add(cube);
     this.sceneElements.push(cube);
