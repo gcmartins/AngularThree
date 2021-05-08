@@ -16,7 +16,8 @@ export class GeometryFormComponent implements OnInit {
         xCoord: new FormControl(0, Validators.required),
         yCoord: new FormControl(0, Validators.required),
         zCoord: new FormControl(0, Validators.required), 
-        color: new FormControl(null, Validators.required)
+        color: new FormControl('blue', Validators.required),
+        geometry: new FormControl(null, Validators.required)
     });
 
   }
@@ -29,7 +30,8 @@ export class GeometryFormComponent implements OnInit {
         z:this.geometryForm.get('zCoord').value
       };
       const color = this.geometryForm.get('color').value;
-      this.threeService.addGeometry(pos, color);
+      const geometryType = this.geometryForm.get('geometry').value;
+      this.threeService.addGeometry(geometryType ,pos, color);
     }
   }
 

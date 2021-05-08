@@ -21,8 +21,8 @@ export class ThreeWorldService {
     this.world.start();
   }
   
-  addGeometry(pos: {x: number, y: number, z: number}, color: string) {
-    const geo = this.world.addGeometry(pos, color);
+  addGeometry(geometryType: string, pos: {x: number, y: number, z: number}, color: string) {
+    const geo = this.world.addGeometry(geometryType ,pos, color);
     let geom = new Geometry(geo.id, geo.position, geo.geometry.type, color);
     this.geometries.push(geom);
     this.newGeometries.next(this.geometries);

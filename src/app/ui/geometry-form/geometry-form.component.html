@@ -1,15 +1,26 @@
 <form [formGroup]="geometryForm">
   <div class="card">
     <div class="card-body">
-      <div class="form-group">
-        <label>Color</label>
-        <select class="form-control" formControlName="color">
-          <option label="Blue" value="blue"></option>
-          <option label="Red" value="red"></option>
-          <option label="Green" value="green"></option>
-          <option label="Yellow" value="yellow"></option>
-          <option label="Purple" value="purple"></option>
-        </select>
+      <div class="form-row">
+        <div class="form-group col">
+          <label>Geometry</label>
+          <select class="form-control" formControlName="geometry">
+            <option label="Cube" value="cube"></option>
+            <option label="Sphere" value="sphere"></option>
+            <option label="Cylinder" value="cylinder"></option>
+            <option label="Torus" value="torus"></option>
+          </select>
+        </div>
+        <div class="form-group col">
+          <label>Color</label>
+          <select class="form-control" formControlName="color">
+            <option label="Blue" value="blue"></option>
+            <option label="Red" value="red"></option>
+            <option label="Green" value="green"></option>
+            <option label="Yellow" value="yellow"></option>
+            <option label="Purple" value="purple"></option>
+          </select>
+        </div>
       </div>
       <hr>
       <div class="form-group">
