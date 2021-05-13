@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Color } from 'three';
 import { World } from '../lib/threeWorld/World';
 import { Geometry } from '../model/geometry';
 
@@ -23,7 +24,7 @@ export class ThreeWorldService {
   
   addGeometry(geometryType: string, pos: {x: number, y: number, z: number}, color: string) {
     const geo = this.world.addGeometry(geometryType ,pos, color);
-    let geom = new Geometry(geo.id, geo.position, geo.geometry.type, color);
+    let geom = new Geometry(geo.id, geo.position, geo.geometry.type, geo.material.color);
     this.geometries.push(geom);
     this.newGeometries.next(this.geometries);
     console.log(this.geometries);

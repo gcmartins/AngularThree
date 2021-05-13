@@ -49,11 +49,11 @@ export class World {
   }
 
   addGeometry(geometryType: string, pos: { x: number; y: number; z: number; }, color: any) {
-    const cube = createGeometry(geometryType, color);
-    cube.position.set(pos.x,pos.y,pos.z);
-    scene.add(cube);
-    this.sceneElements.push(cube);
-    return cube;
+    const geometry = createGeometry(geometryType, color);
+    geometry.position.set(pos.x,pos.y,pos.z);
+    scene.add(geometry);
+    this.sceneElements.push(geometry);
+    return geometry;
   }
 
   deleteGeometry(id: any) {
