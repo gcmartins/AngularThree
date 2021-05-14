@@ -16,6 +16,6 @@ export class Geometry {
     }
 
     get color(): string {
-        return this._color.getHexString();
+        return '#' + this._color.getHexString();
     }
 }
