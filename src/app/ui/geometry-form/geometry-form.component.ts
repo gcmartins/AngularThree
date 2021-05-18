@@ -13,25 +13,21 @@ export class GeometryFormComponent implements OnInit {
   
   ngOnInit(): void {
     this.geometryForm = new FormGroup({
-        xCoord: new FormControl(0, Validators.required),
-        yCoord: new FormControl(0, Validators.required),
-        zCoord: new FormControl(0, Validators.required), 
-        color: new FormControl('blue', Validators.required),
-        geometry: new FormControl(null, Validators.required)
+        position: new FormGroup({
+          x: new FormControl(0, Validators.required),
+          y: new FormControl(0, Validators.required),
+          z: new FormControl(0, Validators.required), 
+        }),
+        color: new FormControl('#0', Validators.required),
+        geometryType: new FormControl(null, Validators.required)
     });
 
   }
 
   addGeometry() {
     if (this.geometryForm.valid) {
-      const pos = {
-        x:this.geometryForm.get('xCoord').value, 
-        y:this.geometryForm.get('yCoord').value, 
-        z:this.geometryForm.get('zCoord').value
-      };
-      const color = this.geometryForm.get('color').value;
-      const geometryType = this.geometryForm.get('geometry').value;
-      this.threeService.addGeometry(geometryType ,pos, color);
+      
+      this.threeService.addGeometry(this.geometryForm.value);
     }
   }
 

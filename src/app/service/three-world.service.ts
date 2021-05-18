@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Color } from 'three';
 import { World } from '../lib/threeWorld/World';
-import { Geometry } from '../model/geometry';
+import { Geometry, GeometryFormData } from '../model/geometry';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,8 @@ export class ThreeWorldService {
     this.world.start();
   }
   
-  addGeometry(geometryType: string, pos: {x: number, y: number, z: number}, color: string) {
-    const geo = this.world.addGeometry(geometryType ,pos, color);
+  addGeometry(geometryFormData: GeometryFormData) {
+    const geo = this.world.addGeometry(geometryFormData);
     let geom = new Geometry(geo.id, geo.position, geo.geometry.type, geo.material.color);
     this.geometries.push(geom);
     this.newGeometries.next(this.geometries);

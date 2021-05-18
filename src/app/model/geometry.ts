@@ -19,3 +19,9 @@ export class Geometry {
         return '#' + this._color.getHexString();
     }
 }
+
+export interface GeometryFormData {
+    geometryType: string;
+    position: Vector3;
+    color: string;
+}

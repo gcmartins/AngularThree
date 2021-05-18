@@ -31,8 +31,8 @@ function createMaterial(color: any) {
 export function createGeometry(geometryType: string, color: any) {
   let geometry: BufferGeometry;
   switch (geometryType) {
-    case 'cube':
-      geometry = createCube();
+    case 'box':
+      geometry = createBox();
       break;
     
     case 'sphere':
@@ -56,7 +56,7 @@ export function createGeometry(geometryType: string, color: any) {
 
 }
 
-function createCube(): BufferGeometry {
+function createBox(): BufferGeometry {
   const geometry = new BoxBufferGeometry(1, 1, 1);
 
   // cube.rotation.set(-0.5, -0.1, 0.8);
