@@ -9,10 +9,13 @@ import { EditPageComponent } from './page/edit-page/edit-page.component';
 import { ShowPageComponent } from './page/show-page/show-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SceneFormComponent } from './ui/scene-form/scene-form.component';
+import { ScenePageComponent } from './page/scene-page/scene-page.component'
 
 @NgModule({
-  declarations: [AppComponent, ThreeContainerComponent, GeometryFormComponent, GeometryListComponent, EditPageComponent, ShowPageComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule],
+  declarations: [AppComponent, ThreeContainerComponent, GeometryFormComponent, GeometryListComponent, EditPageComponent, ShowPageComponent, SceneFormComponent, ScenePageComponent],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

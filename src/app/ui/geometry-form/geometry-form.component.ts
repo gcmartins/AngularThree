@@ -5,7 +5,6 @@ import { ThreeWorldService } from 'src/app/service/three-world.service';
 @Component({
   selector: 'app-geometry-form',
   templateUrl: './geometry-form.component.html',
-  styleUrls: ['./geometry-form.component.css']
 })
 export class GeometryFormComponent implements OnInit {
   geometryForm: FormGroup;

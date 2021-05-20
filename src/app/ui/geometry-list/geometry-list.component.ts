@@ -5,7 +5,6 @@ import { ThreeWorldService } from 'src/app/service/three-world.service';
 @Component({
   selector: 'app-geometry-list',
   templateUrl: './geometry-list.component.html',
-  styleUrls: ['./geometry-list.component.css']
 })
 export class GeometryListComponent implements OnInit {
   geometries: Geometry[];
