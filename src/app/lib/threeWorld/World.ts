@@ -7,7 +7,7 @@ import { createRenderer } from './systems/renderer';
 import { Resizer } from './systems/Resizer';
 import { Loop } from './systems/Loop';
 import { AxesHelper, GridHelper, HemisphereLightProbe } from 'three';
-import { GeometryFormData } from 'src/app/model/geometry';
+import { Geometry } from 'src/app/model/geometry';
 
 
 const camera = createCamera();
@@ -49,13 +49,13 @@ export class World {
     loop.stop();
   }
 
-  addGeometry(geometryFormData: GeometryFormData) {
-    const geometry = createGeometry(geometryFormData.geometryType, geometryFormData.color);
-    const pos = geometryFormData.position;
-    geometry.position.set(pos.x,pos.y,pos.z);
-    scene.add(geometry);
-    this.sceneElements.push(geometry);
-    return geometry;
+  addGeometry(geometry: Geometry) {
+    const geo = createGeometry(geometry.name, geometry.color);
+    const pos = geometry.position;
+    geo.position.set(pos.x,pos.y,pos.z);
+    scene.add(geo);
+    this.sceneElements.push(geo);
+    return geo;
   }
 
   deleteGeometry(id: any) {

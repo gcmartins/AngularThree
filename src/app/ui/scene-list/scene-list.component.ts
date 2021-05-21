@@ -25,6 +25,8 @@ export class SceneListComponent implements OnInit {
 
   editScene(scene: SceneThree) {
     this.threeService.loadGeometries(scene.geometries);
+    this.sceneService.isEditing = true;
+    this.sceneService.editingScene = scene;
     this.router.navigate(['edit']);   
   }
 

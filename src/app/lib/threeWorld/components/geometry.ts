@@ -31,19 +31,19 @@ function createMaterial(color: any) {
 export function createGeometry(geometryType: string, color: any) {
   let geometry: BufferGeometry;
   switch (geometryType) {
-    case 'box':
+    case 'BoxGeometry':
       geometry = createBox();
       break;
     
-    case 'sphere':
+    case 'SphereGeometry':
       geometry = createSphere();
       break;
 
-    case 'cylinder':
+    case 'CylinderGeometry':
       geometry = createCylinder();
       break;
 
-    case 'torus':
+    case 'TorusGeometry':
       geometry = createTorus();
       break;
 

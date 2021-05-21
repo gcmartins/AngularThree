@@ -18,6 +18,21 @@ function getApiEnpoint(scene?: SceneThree): string {
 })
 export class SceneService {
 
+  private _editingScene: SceneThree;
+  isEditing = false;
+
+
+  set editingScene(scene: SceneThree) {
+    this._editingScene = scene;
+  }
+
+  get editingScene() {
+    if (this.isEditing) {
+      return this._editingScene;
+    }
+    return null;
+  }
+
   constructor(private http: HttpClient) { }
 
   saveScene(scene: SceneThree) {
@@ -37,8 +52,13 @@ export class SceneService {
     );
   }
 
-  deleteScene(scene: SceneThree){
-    return this.http.delete(getApiEnpoint(scene));
+  deleteScene(scene: SceneThree) {
+    return this.http.delete<SceneThree>(getApiEnpoint(scene));
   }
+
+  updateScene(scene: SceneThree) {
+    return this.http.put<SceneThree>(getApiEnpoint(scene), scene);
+  }
+
 
 }
