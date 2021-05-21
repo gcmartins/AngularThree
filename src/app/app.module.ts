@@ -11,10 +11,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SceneFormComponent } from './ui/scene-form/scene-form.component';
-import { ScenePageComponent } from './page/scene-page/scene-page.component'
+import { ScenePageComponent } from './page/scene-page/scene-page.component';
+import { SceneListComponent } from './ui/scene-list/scene-list.component'
 
 @NgModule({
-  declarations: [AppComponent, ThreeContainerComponent, GeometryFormComponent, GeometryListComponent, EditPageComponent, ShowPageComponent, SceneFormComponent, ScenePageComponent],
+  declarations: [AppComponent, ThreeContainerComponent, GeometryFormComponent, GeometryListComponent, EditPageComponent, ShowPageComponent, SceneFormComponent, ScenePageComponent, SceneListComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],

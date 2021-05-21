@@ -1,0 +1,22 @@
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let scene of scenes | async">
+      <div class="row">
+        <p class="col">Name: {{ scene.name }}</p>
+        <button
+          (click)="editScene(scene)"
+          type="button"
+          class="btn btn-outline-secondary"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button
+          (click)="deleteScene(scene)"
+          type="button"
+          class="btn btn-outline-danger"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </li>
+  </ul>
+  
