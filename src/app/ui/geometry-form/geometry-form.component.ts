@@ -17,7 +17,7 @@ export class GeometryFormComponent implements OnInit {
           y: new FormControl(0, Validators.required),
           z: new FormControl(0, Validators.required), 
         }),
-        color: new FormControl('#0', Validators.required),
+        color: new FormControl('#ffffff', Validators.required),
         geometryType: new FormControl(null, Validators.required)
     });
 

@@ -16,7 +16,7 @@ export class SceneFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.sceneForm = new FormGroup({
-      nameScene: new FormControl(null, Validators.required),
+      name: new FormControl(null, Validators.required),
     });
   }
 
@@ -26,11 +26,5 @@ export class SceneFormComponent implements OnInit {
         result => console.log(result)
       );
     }
-  }
-
-  getScene() {
-    this.sceneService.getScene().subscribe(
-      result => console.log(Object.entries(result))
-    );
   }
 }
