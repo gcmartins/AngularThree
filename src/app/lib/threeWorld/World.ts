@@ -51,9 +51,6 @@ export class World {
     const geo = createGeometry(geometry.name, geometry.color);
     const control = createTransformControl(camera, renderer.domElement, orbitControl);
     control.attach(geo);
-
-    const pos = geometry.position;
-    geo.position.set(pos.x, pos.y, pos.z);
     
     scene.add(geo, control);
     

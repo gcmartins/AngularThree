@@ -1,7 +1,7 @@
-<ul class="list-group">
+<ul class="list-group" style="height: 375px;overflow-y:scroll;">
   <li class="list-group-item" *ngFor="let geo of geometries">
     <div class="row">
-      <p class="col">Name: {{ geo.name }}</p>
+      <p class="col">{{ geo.name }}</p>
       <div class="form-group col">
         <input type="color" class="form-control" [(ngModel)]="geo.color"/>
       </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="row">
       <div class="form-group col">
-        <label>X-coordinate</label>
+        <label>X-coord</label>
         <input
           class="form-control"
           type="number"
@@ -23,7 +23,7 @@
         />
       </div>
       <div class="form-group col">
-        <label>Y-coordinate</label>
+        <label>Y-coord</label>
         <input
           class="form-control"
           type="number"
@@ -31,7 +31,7 @@
         />
       </div>
       <div class="form-group col">
-        <label>Z-coordinate</label>
+        <label>Z-coord</label>
         <input
           class="form-control"
           type="number"
