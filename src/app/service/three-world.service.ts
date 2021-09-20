@@ -27,27 +27,11 @@ export class ThreeWorldService {
     let geom = new Geometry(geo.id, geo.position, geo.geometry.type, geo.material.color);
     this.geometries.push(geom);
     this.newGeometries.next(this.geometries);
-    console.log(this.geometries);
   }
   
   deleteGeometry(id: number) {
     this.world.deleteGeometry(id);
     let index = this.geometries.findIndex(geo => geo.id == id);
     this.geometries.splice(index, 1);
-  }
-
-  private cleanScene() {
-    const ids = this.geometries.map(geo => geo.id);
-    ids.forEach(id => {
-      this.deleteGeometry(id);
-    });
-  }
-
-  loadGeometries(geometries: Geometry[]) {
-    this.cleanScene();
-    if (geometries) {
-      geometries.forEach((geo: Geometry) => this.addGeometry(new Geometry(geo.id, geo.position,geo.name, new Color(geo.colorString))));
-    }
-    this.newGeometries.next(this.geometries);
   }
 }
