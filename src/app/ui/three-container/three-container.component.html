@@ -1,1 +1,12 @@
 <div class="three-container" #threeContainer></div>
+<div style="display: flex; align-items: flex-start; justify-content: space-between;">
+    <div class="form-group">
+        <button class="btn btn-primary" (click)="toggleTransform()">Toggle Transform</button>
+    </div>
+    <div class="form-group" style="display: flex;">
+        <label>Transform Mode:</label>
+        <select class="form-control" (change)="selectTransformMode($event.target.value)">
+          <option *ngFor="let mode of transformModes" [label]="mode.toUpperCase()" [value]="mode"></option>
+        </select>
+    </div>
+</div>

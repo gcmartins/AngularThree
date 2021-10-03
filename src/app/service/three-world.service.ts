@@ -34,4 +34,12 @@ export class ThreeWorldService {
     let index = this.geometries.findIndex(geo => geo.id == id);
     this.geometries.splice(index, 1);
   }
+
+  changeTransformMode(mode: string){
+    this.world.setTransformMode(mode);
+  }
+
+  toggleTransform(enabled: boolean) {
+    this.world.toggleTransform(enabled);
+  }
 }

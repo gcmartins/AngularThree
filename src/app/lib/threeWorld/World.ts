@@ -61,12 +61,25 @@ export class World {
     return geo;
   }
 
-  deleteGeometry(id: any) {
+  deleteGeometry(id: number) {
     let index = this.sceneElements.findIndex((elem) => elem.geometry.id == id);
     scene.remove(
       this.sceneElements[index].geometry,
       this.sceneElements[index].control
     );
     this.sceneElements.splice(index, 1);
+  }
+
+  setTransformMode(mode: string){
+    this.sceneElements.forEach(element => element.control.setMode(mode));
+  }
+
+  toggleTransform(enabled: boolean) {
+    this.sceneElements.forEach(element => {
+      element.control.showX = enabled; 
+      element.control.showY = enabled; 
+      element.control.showZ = enabled; 
+      element.control.enabled = enabled; 
+    });
   }
 }

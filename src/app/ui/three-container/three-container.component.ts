@@ -9,11 +9,24 @@ import { ThreeWorldService } from 'src/app/service/three-world.service';
 export class ThreeContainerComponent implements AfterViewInit {
   @ViewChild('threeContainer') threeContainer: ElementRef;
 
+  transformModes = ['translate', 'rotate', 'scale'];
+
+  enabled = true;
+
   constructor(private threeService: ThreeWorldService) { }
   ngAfterViewInit(): void {
     const container = this.threeContainer.nativeElement;
   
     this.threeService.createWorld(container);
+  }
+
+  selectTransformMode(mode: string){
+    this.threeService.changeTransformMode(mode);
+  }
+
+  toggleTransform(){
+    this.enabled = !this.enabled;
+    this.threeService.toggleTransform(this.enabled);
   }
 
 }
